@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "start": "dotnet tool restore && dotnet fable watch src --runFast vite",
-    "build": "dotnet tool restore && dotnet fable src --run vite build",
+    "build": "dotnet tool restore && dotnet fable src --run vite build && npx vite",
+    "serve": "npx vite",
     "clean": "dotnet fable clean src --yes"
   },
   "dependencies": {
