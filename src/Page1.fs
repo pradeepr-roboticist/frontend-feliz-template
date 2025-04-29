@@ -13,9 +13,6 @@ type Msg =
 
 let init () : Model * Cmd<Msg> =
     let model = { Todos = []; Input = "" }
-
-    // let cmd = Cmd.OfAsync.perform todosApi.getTodos () GotTodos
-
     model, Cmd.none
 
 let update (msg: Msg) (model: Model) : Model * Cmd<Msg> =
@@ -23,11 +20,14 @@ let update (msg: Msg) (model: Model) : Model * Cmd<Msg> =
     // | GotTodos todos -> { model with Todos = todos }, Cmd.none
     | SetInput value -> { model with Input = value }, Cmd.none
     | AddTodo ->
-        // let todo = Todo.create model.Input
-
+        let todo = { Id = model.Todos |> List.length ; Description = model.Input }
         // let cmd = Cmd.OfAsync.perform todosApi.addTodo todo AddedTodo
-
-        { model with Input = "" }, Cmd.none
+        {
+            model
+                with
+                    Input = ""
+                    Todos = model.Todos @ [ todo ]
+        }, Cmd.none
     // | AddedTodo todo -> { model with Todos = model.Todos @ [ todo ] }, Cmd.none
 
 open Feliz
@@ -51,7 +51,12 @@ let containerBox (model: Model) (dispatch: Msg -> unit) =
     Bulma.box [
         Bulma.content [
             Html.ol [
-                Html.text "Todos"
+                Html.div [
+                    prop.style [
+                        style.fontSize 30
+                    ]
+                    prop.children [Html.text "Todos"]
+                ]
                 for todo in model.Todos do
                     Html.li [ prop.text todo.Description ]
             ]
@@ -66,6 +71,9 @@ let containerBox (model: Model) (dispatch: Msg -> unit) =
                             prop.value model.Input
                             prop.placeholder "What needs to be done?"
                             prop.onChange (fun x -> SetInput x |> dispatch)
+                            prop.onKeyDown (fun e ->
+                                if e.key = "Enter" then
+                                    AddTodo |> dispatch)
                         ]
                     ]
                 ]

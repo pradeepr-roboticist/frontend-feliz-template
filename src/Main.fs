@@ -1,5 +1,6 @@
 module App
 
+open Fable.Core.JsInterop
 open Elmish
 open Elmish.React
 
@@ -7,6 +8,7 @@ open Elmish.React
 open Elmish.Debug
 open Elmish.HMR
 #endif
+Fable.Core.JsInterop.importSideEffects "bulma/css/bulma.min.css"
 
 Program.mkProgram Index.init Index.update Index.view
 #if DEBUG
