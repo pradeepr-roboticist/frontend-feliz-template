@@ -40,7 +40,7 @@ let navBrand =
             navbarItem.isActive
             prop.children [
                 Html.img [
-                    prop.src "/favicon.png"
+                    prop.src "/favicon-32x32.png"
                     prop.alt "Logo"
                 ]
             ]
@@ -77,11 +77,11 @@ let view (model: Model) (dispatch: Msg -> unit) =
     Bulma.hero [
         hero.isFullHeight
         color.isPrimary
-        prop.style [
-            style.backgroundSize "cover"
-            style.backgroundImageUrl "https://unsplash.it/1200/900?random"
-            style.backgroundPosition "no-repeat center center fixed"
-        ]
+        // prop.style [
+        //     style.backgroundSize "cover"
+        //     style.backgroundImageUrl "https://unsplash.it/1200/900?random"
+        //     style.backgroundPosition "no-repeat center center fixed"
+        // ]
         prop.children [
             Bulma.heroHead [
                 Bulma.navbar [
