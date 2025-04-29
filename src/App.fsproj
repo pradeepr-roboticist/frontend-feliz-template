@@ -5,11 +5,19 @@
     <ItemGroup>
         <None Include="index.html" />
         <Compile Include="Extensions.fs" />
-        <Compile Include="Components.fs" />
+        <Compile Include="Page1.fs" />
+        <Compile Include="Index.fs" />
         <Compile Include="Main.fs" />
     </ItemGroup>
     <ItemGroup>
+        <PackageReference Include="Fable.Core" Version="4.5.0" />
+        <PackageReference Include="Fable.Elmish" Version="4.3.0" />
+        <PackageReference Include="Fable.Elmish.Debugger" Version="4.1.0" />
+        <PackageReference Include="Fable.Elmish.HMR" Version="7.0.0" />
+        <PackageReference Include="Fable.Elmish.React" Version="4.0.0" />
+        <PackageReference Include="Fable.React" Version="9.4.0" />
         <PackageReference Include="Feliz" Version="2.6.0" />
+        <PackageReference Include="Feliz.Bulma" Version="3.0.0" />
         <PackageReference Include="Feliz.Router" Version="4.0.0" />
     </ItemGroup>
 </Project>
