@@ -5,6 +5,8 @@
     <ItemGroup>
         <None Include="index.html" />
         <Compile Include="Extensions.fs" />
+        <Compile Include="ThreeInterop.fs" />
+        <Compile Include="ThreeJSComponent.fs" />
         <Compile Include="Page1.fs" />
         <Compile Include="Index.fs" />
         <Compile Include="Main.fs" />

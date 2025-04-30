@@ -57,6 +57,7 @@ let containerBox (model: Model) (dispatch: Msg -> unit) =
                     ]
                     prop.children [Html.text "Todos"]
                 ]
+                ThreeJSComponent.view () ()
                 for todo in model.Todos do
                     Html.li [ prop.text todo.Description ]
             ]
